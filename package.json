@@ -1,0 +1,25 @@
+{
+  "name": "express-docker",
+  "version": "1.0.0",
+  "description": "Web Server in Docker",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest || true",
+    "start": "ts-node src/index.ts",
+    "build": "node build.mjs",
+    "eslint": "eslint src/**/*.ts"
+  },
+  "author": "Dennys",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "esbuild": "^0.23.1",
+    "eslint": "^8.57.0",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  }
+}

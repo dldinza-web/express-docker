@@ -1,0 +1,20 @@
+{
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+		"skipLibCheck": true,
+		"alwaysStrict": true,
+		"esModuleInterop": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"noUnusedParameters": false,
+		"noUnusedLocals": false,
+    "resolveJsonModule": true,
+		"sourceMap": false,
+		"target": "es6",
+		"lib": ["es6", "dom", "es2021"],
+    "rootDirs": ["src/*"],
+    "outDir": "dist/"
+  }
+}
