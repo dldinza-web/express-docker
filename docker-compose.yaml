@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  api:
+    volumes:
+      - ./src:/usr/src/app/src
+    expose:
+      - 3000
+    environment:
+      ENVIRONMENT_NAME: "development"
+    ports:
+      - "3000:3000"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run start:dev
+
+networks:
+  default:
+    name: "app-network_build_1"

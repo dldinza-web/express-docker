@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 const route = require('./routes.json')
 
 webServer.get('/', (request: Request, response: Response) => {
-  console.log(
+  console.log( // eslint-disable-line
     '[Request]',
     '\nHeader: ',
     request.headers,
@@ -26,7 +26,7 @@ webServer.get('/', (request: Request, response: Response) => {
   response.send(responseBody)
 })
 
-if (route.method == "GET") {
+if (route.method === 'GET') {
   webServer.get(route.urlPath, (request: Request, response: Response) => {
 
     const endpointProcess = require(route.src)
@@ -44,6 +44,6 @@ webServer.listen(
   () => { // onStart
     const server = `http://localhost:${port}`
 
-    console.log(`Route ${route.method}: ${server}${route.urlPath}`)
+    console.log(`Route ${route.method}: ${server}${route.urlPath}`) // eslint-disable-line
   }
 )
