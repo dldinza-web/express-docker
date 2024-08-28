@@ -1,5 +1,9 @@
-const main = () => {
-  console.log('ready to start...') //eslint-disable-line
-}
+import { Request, Response } from "express"
 
-main()
+export const main = (request: Request, response: Response) => {
+  const body = `ready to start... Body: ${request.body} Query: ${request.query}`
+
+  console.log('!!body', body) //eslint-disable-line
+
+  return response.send(body)
+}
