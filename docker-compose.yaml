@@ -2,6 +2,11 @@ version: "3.7"
 
 services:
   api:
+    depends_on:
+      redis:
+        condition: service_started
+      db:
+        condition: service_started
     volumes:
       - ./src:/usr/src/app/src
     expose:
@@ -14,6 +19,29 @@ services:
       context: .
       dockerfile: Dockerfile
     command: npm run start:dev
+
+  db:
+    image: postgres:12
+    expose:
+      - 5432
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: 'root'
+      POSTGRES_PASSWORD: 'moot'
+      POSTGRES_DB: 'express-docker-db_dev'
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6-alpine
+    expose:
+      - 6379
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres-db:
 
 networks:
   default:
