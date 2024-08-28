@@ -1,9 +1,9 @@
 import { Request, Response } from "express"
 
-export const main = (request: Request, response: Response) => {
-  const body = `ready to start... Body: ${request.body} Query: ${request.query}`
+export const main = (request: Request) => {
+  const body = `ready to start... Body: ${request.body} Query: ${JSON.stringify(request.query)}`
 
-  console.log('!!body', body) //eslint-disable-line
+  console.log('!!body', body, process.env.ENVIRONMENT_NAME) //eslint-disable-line
 
-  return response.send(body)
+  return body
 }

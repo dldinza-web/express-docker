@@ -1,5 +1,7 @@
 import express, { Request, Response } from 'express'
 
+require('@dotenvx/dotenvx').config()
+
 const webServer = express()
 const port = process.env.PORT || 3000;
 
@@ -30,7 +32,7 @@ if (route.method == "GET") {
     const endpointProcess = require(route.src)
 
     const processResponse = endpointProcess[route.handler]
-    const responseEndpoint = processResponse(request, response)
+    const responseEndpoint = processResponse(request)
 
     response.setHeader('Content-Type', 'application/json')
     response.send(responseEndpoint)
